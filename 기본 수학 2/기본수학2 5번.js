@@ -10,12 +10,12 @@ const bre = (len) => {
       max = 2 * parseInt(input[i]);
       for (j = min; j <= max; j++) {
         for (k = 1; k <= Math.floor(Math.sqrt(j)); k++) {
-          if ((j % k == 0 && k != 1)  j == 1) {
+          if ((j % k == 0 && k != 1) || j == 1) {
             bo = true;
             break;
           }
         }
-        if (bo == false  j == 2) {
+        if (bo == false || j == 2) {
           count++;
         } else {
           bo = false;
