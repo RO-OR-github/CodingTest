@@ -1,32 +1,18 @@
-const array = require("fs").readFileSync("example.txt").toString().split("\n");
+const array = require("fs").readFileSync("example.txt").toString().split("\n"); //'/dev/stdin'
+const num = parseInt(array.shift());
 
-const stack = [];
-const result = [];
-
-const len = array.shift();
-
-for (let i = 0; i < len; i++) {
-  switch (array[i]) {
-    case "pop":
-      result.push(stack.pop() || -1);
-      break;
-
-    case "size":
-      result.push(stack.length);
-      break;
-
-    case "empty":
-      result.push(stack[0] ? 0 : 1);
-      break;
-
-    case "top":
-      result.push(stack[stack.length - 1] || -1);
-      break;
-
-    default:
-      stack.push(array[i].split(" ")[1]);
-      break;
+let sum = [];
+let ans = 0;
+for (i = 0; i < num; i++) {
+  if (parseInt(array[i]) != 0) {
+    sum.push(parseInt(array[i]));
+  } else {
+    sum.pop();
   }
 }
 
-console.log(result.join("\n"));
+for (k = 0; k < sum.length; k++) {
+  ans += sum[k];
+}
+
+console.log(ans);
